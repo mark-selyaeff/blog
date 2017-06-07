@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block head_title %}{{ instance.title|truncatechars:7 }} | {{ block.super }} {% endblock head_title %}
+
+{% block content %}
+    <div class="col-sm-6 col-sm-offset-3">
+        <h1>{{ instance.title|linebreaks|truncatechars:50}} <small>{{ instance.timestamp }}</small></h1>
+        {% if instance.image %}
+            <img src="{{ instance.image.url }}" alt="" class="'img-responsive">
+        {% endif %}
+        <p>{{ instance.content }}</p>
+    </div>
+{% endblock content %}
